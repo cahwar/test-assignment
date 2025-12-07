@@ -24,5 +24,9 @@ end
 PhysicsService:RegisterCollisionGroup("ConveyorElement")
 PhysicsService:RegisterCollisionGroup("Player")
 
+PhysicsService:CollisionGroupSetCollidable("ConveyorElement", "ConveyorElement", false)
+PhysicsService:CollisionGroupSetCollidable("Player", "ConveyorElement", false)
+PhysicsService:CollisionGroupSetCollidable("Player", "Player", false)
+
 markCollisionGroupByTag("ConveyorElement", "ConveyorElement")
 markCollisionGroupByTag("PlayerCharacter", "Player")
