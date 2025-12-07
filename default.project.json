@@ -42,10 +42,11 @@
     },
 
     "Workspace": {
-      "Conveyor": {
-        "$path": "Assets/Conveyor.rbxm"
+      "Baseplate": {
+        "$path": "Assets/Baseplate.rbxm"
       }
     },
+
     "Lighting": {
       "$properties": {
         "Ambient": [0, 0, 0],
