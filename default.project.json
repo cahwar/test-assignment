@@ -9,6 +9,13 @@
       },
       "Packages": {
         "$path": "./Packages"
+      },
+      "Remotes": {
+        "$className": "Folder",
+
+        "SetInterval": {
+          "$className": "RemoteEvent"
+        }
       }
     },
 
