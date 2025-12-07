@@ -1,5 +1,6 @@
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local intervalConfig = require(ReplicatedStorage.Shared["intervalConfig"])
 local conveyorSpawner = require("./components/conveyor-spawner")
 
 local MANAGERS_COUNT = 1
@@ -30,12 +31,18 @@ for _, player: Player in Players:GetPlayers() do
 	task.spawn(onPlayerAdded, player)
 end
 
-Players.PlayerAdded.Connect(function(player: Player)
+Players.PlayerAdded:Connect(function(player: Player)
 	onPlayerAdded(player)
 end)
 
 ReplicatedStorage.Remotes.SetInterval.OnServerEvent:Connect(function(player: Player, interval: number)
-	setInterval(interval)
+	if interval < intervalConfig.MIN_INTERVAL or interval > intervalConfig.MAX_INTERVAL then
+		return
+	end
+
+	if table.find(managers, player) then
+		setInterval(interval)
+	end
 end)
 
 ReplicatedStorage.Remotes.IsManager.OnServerInvoke = function(player: Player)

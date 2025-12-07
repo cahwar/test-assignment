@@ -14,7 +14,9 @@ function conveyorSpawner:Start()
 	self.timer:StartNow()
 
 	self.Instance:GetAttributeChangedSignal("SpawnInterval"):Connect(function()
+		self.timer:Stop()
 		self.timer.Interval = self:GetSpawnInterval()
+		self.timer:Start()
 	end)
 end
 

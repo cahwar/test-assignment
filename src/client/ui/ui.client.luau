@@ -1,7 +1,9 @@
 local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local layer = require("./components/composables/layer")
+local vide = require(ReplicatedStorage.Packages.vide)
+local mount = vide.mount
 
-local enterLayer = layer({IgnoreGuiInset = true, DisplayOrder = 0})
+local app = require("./components/view/app")
 
-enterLayer.Parent = Players.LocalPlayer.PlayerGui
+mount(app, Players.LocalPlayer.PlayerGui)
