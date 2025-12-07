@@ -5,8 +5,7 @@
 
     "ReplicatedStorage": {
       "Shared": {
-        "$path": "src/shared",
-        "$ignoreUnknownInstances": true
+        "$path": "src/shared"
       },
       "Packages": {
         "$path": "./Packages"
@@ -15,16 +14,14 @@
 
     "ServerScriptService": {
       "Server": {
-        "$path": "src/server",
-        "$ignoreUnknownInstances": true
+        "$path": "src/server"
       }
     },
 
     "StarterPlayer": {
       "StarterPlayerScripts": {
         "Client": {
-          "$path": "src/client",
-          "$ignoreUnknownInstances": true
+          "$path": "src/client"
         }
       }
     },
