@@ -1,0 +1,3 @@
+-- for _, InstanceConstructor : ModuleScript in script:GetDescendants() do
+--     if InstanceConstructor:IsA("ModuleScript") then require(InstanceConstructor)() end
+-- end
