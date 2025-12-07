@@ -9,7 +9,16 @@ local conveyorElement = component.new({Tag="ConveyorElement"})
 
 function conveyorElement:Start()
     self.size = self.Instance.Size
+
     self:PlaySpawnEffect()
+
+    self.clickDetector = self.Instance:WaitForChild("ClickDetector", 5)
+
+    if self.clickDetector then
+        self.clickDetector.MouseClick:Connect(function()
+            warn(`Client Id: {self.Instance:GetAttribute("Id")}`)
+        end)
+    end
 end
 
 function conveyorElement:Stop()
