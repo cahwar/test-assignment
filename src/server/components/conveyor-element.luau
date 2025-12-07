@@ -2,6 +2,8 @@ local HttpService = game:GetService("HttpService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local component = require(ReplicatedStorage.Packages.component)
 
+local MATERIALS = Enum.Material:GetEnumItems()
+
 local conveyorElement = component.new({Tag="ConveyorElement"})
 
 function conveyorElement:Start()
@@ -12,6 +14,9 @@ function conveyorElement:Start()
     clickDetector.MouseClick:Connect(function()
         warn(`Server Id: {self.Instance:GetAttribute("Id")}`)
     end)
+    
+    self.Instance.Material = MATERIALS[math.random(#MATERIALS)]
+    self.Instance.BrickColor = BrickColor.random()
 end
 
 return conveyorElement
