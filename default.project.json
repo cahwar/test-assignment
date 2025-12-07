@@ -15,6 +15,14 @@
 
         "SetInterval": {
           "$className": "RemoteEvent"
+        },
+
+        "AssignedManager": {
+          "$className": "RemoteEvent"
+        },
+
+        "IsManager": {
+          "$className": "RemoteFunction"
         }
       }
     },
