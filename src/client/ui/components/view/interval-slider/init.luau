@@ -2,10 +2,10 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local StarterPlayer = game:GetService("StarterPlayer")
 local UserInputService = game:GetService("UserInputService")
 
-local textUtils = require(ReplicatedStorage.Shared["textUtils"])
+local textUtils = require(ReplicatedStorage.Shared.utils["textUtils"])
 local useEvent = require(StarterPlayer.StarterPlayerScripts.Client.ui.hooks.useEvent)
 local vide = require(ReplicatedStorage.Packages.vide)
-local intervalConfig = require(ReplicatedStorage.Shared.intervalConfig)
+local intervalConfig = require(ReplicatedStorage.Shared.config["interval.config"])
 
 local create = vide.create
 local source = vide.source

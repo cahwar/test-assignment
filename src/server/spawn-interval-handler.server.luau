@@ -1,6 +1,6 @@
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local intervalConfig = require(ReplicatedStorage.Shared["intervalConfig"])
+local intervalConfig = require(ReplicatedStorage.Shared.config["interval.config"])
 local conveyorSpawner = require("./components/conveyor-spawner")
 
 local MANAGERS_COUNT = 1
