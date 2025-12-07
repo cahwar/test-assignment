@@ -52,8 +52,6 @@ return function()
 		local pos = (mouseLocation - framePosition) / frameSize
 
 		dragAlpha(math.clamp(pos, 0, 1))
-
-		warn(dragAlpha())
 	end
 
 	useEvent(ReplicatedStorage.Remotes.AssignedManager.OnClientEvent, function()
