@@ -6,3 +6,4 @@ realm = "shared"
 
 [dependencies]
 vide = "centau/vide@0.3.1"
+component = "sleitnick/component@2.4.8"
