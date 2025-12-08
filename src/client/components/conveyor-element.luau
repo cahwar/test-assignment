@@ -5,50 +5,51 @@ local component = require(ReplicatedStorage.Packages.component)
 
 local SIZE_TWEEN_INFO = TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 
-local conveyorElement = component.new({Tag="ConveyorElement"})
+local conveyorElement = component.new({ Tag = "ConveyorElement" })
 
 function conveyorElement:Start()
-    self.size = self.Instance.Size
+	self.size = self.Instance.Size
 
-    self:PlaySpawnEffect()
+	self:PlaySpawnEffect()
 
-    self.clickDetector = self.Instance:WaitForChild("ClickDetector", 5)
+	self.clickDetector = self.Instance:WaitForChild("ClickDetector", 5)
 
-    if self.clickDetector then
-        self.clickDetector.MouseClick:Connect(function()
-            warn(`Client Id: {self.Instance:GetAttribute("Id")}`)
-        end)
-    end
+	if self.clickDetector then
+		self.clickDetector.MouseClick:Connect(function()
+			warn(`Client Id: {self.Instance:GetAttribute("Id")}`)
+		end)
+	end
 end
 
 function conveyorElement:Stop()
-    self:PlayDestroyEffect()
+	self:PlayDestroyEffect()
 end
 
 function conveyorElement:CreateClone()
-    local clone = self.Instance:Clone()
-    clone.Anchored = true
-    clone.Position = self.Instance.Position
-    clone:RemoveTag("ConveyorElement")
-    clone.Parent = workspace
+	local clone = self.Instance:Clone()
+	clone.Anchored = true
+	clone.Position = self.Instance.Position
+	clone:RemoveTag("ConveyorElement")
+	clone.Parent = workspace
 
-    return clone
+	return clone
 end
 
 function conveyorElement:PlaySpawnEffect()
-    self.Instance.Size = Vector3.one / 10
-    TweenService:Create(self.Instance, SIZE_TWEEN_INFO, { Size = self.size }):Play()
+	self.Instance.Size = Vector3.one / 10
+	TweenService:Create(self.Instance, SIZE_TWEEN_INFO, { Size = self.size }):Play()
 end
 
 function conveyorElement:PlayDestroyEffect()
-    local clone = self:CreateClone()
-    local tween = TweenService:Create(clone, SIZE_TWEEN_INFO, { Size = Vector3.one / 10 })
+	local clone = self:CreateClone()
 
-    tween.Completed:Connect(function()
-        Debris:AddItem(clone, 0)
-    end)
+	local tween = TweenService:Create(clone, SIZE_TWEEN_INFO, { Size = Vector3.one / 10 })
 
-    tween:Play()
+	tween.Completed:Connect(function()
+		Debris:AddItem(clone, 0)
+	end)
+
+	tween:Play()
 end
 
 return conveyorElement
